@@ -26,6 +26,7 @@ body {
 
 *, *::before, *::after { box-sizing: border-box; }
 
+a.hub-link {
   position: fixed;
   top: 0.4rem;
   left: 0.6rem;
@@ -36,6 +37,7 @@ body {
   font-family: 'DM Mono', monospace;
   transition: color 0.2s;
 }
+a.hub-link:hover { color: #e8873a; }
 
 .container {
   max-width: 1200px;
@@ -446,6 +448,7 @@ footer {
 </head>
 <body>
 
+<a href="/" class="hub-link" style="position:fixed;top:0.4rem;left:0.6rem;z-index:1000;color:transparent;text-decoration:none;font-size:0.55rem;pointer-events:none;">&larr; Hub</a>
 
 <div id="loading-overlay">
   <div class="loader">
