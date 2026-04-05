@@ -988,7 +988,7 @@ function initThree() {
   scene.fog = new THREE.Fog(0x080c14, 8, 20);
 
   camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 100);
-  camera.position.set(3, 2.8, 3.8);
+  camera.position.set(2.2, 2, 2.8);
   camera.lookAt(0, 0.3, 0);
 
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -1142,7 +1142,7 @@ function initThree() {
   resetBtn.onmouseenter = () => { resetBtn.style.color = '#e8873a'; resetBtn.style.background = 'rgba(255,255,255,0.12)'; };
   resetBtn.onmouseleave = () => { resetBtn.style.color = '#6a7588'; resetBtn.style.background = 'rgba(255,255,255,0.06)'; };
   resetBtn.onclick = () => {
-    camera.position.set(3, 2.8, 3.8);
+    camera.position.set(2.2, 2, 2.8);
     camera.lookAt(0, 0.3, 0);
     controls.target.set(0, 0.3, 0);
     controls.update();
