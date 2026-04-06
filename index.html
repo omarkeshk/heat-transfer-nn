@@ -438,11 +438,41 @@ footer {
 .tab-panel.active { display: block; }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  html { font-size: 20px; }
+/* ── RESPONSIVE GRIDS ── */
+.grid-6 { display:grid; grid-template-columns:repeat(6,1fr); gap:0.4rem; margin-bottom:0.6rem; }
+.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:0.4rem; margin-bottom:0.6rem; }
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; margin-bottom:0.6rem; }
+.grid-2-guide { display:grid; grid-template-columns:1fr 1fr; gap:0.4rem; margin-top:0.3rem; }
+.grid-3-guide { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.4rem; margin-top:0.3rem; }
+
+/* ── TABLET ── */
+@media (max-width: 1000px) {
+  html { font-size: 22px; }
   .predictor { flex-direction: column; }
-  .predictor-3d { flex: none; min-height: 12rem; }
-  .charts-row, .metrics-row, .info-grid { grid-template-columns: repeat(2, 1fr); }
+  .predictor-3d { flex: none; min-height: 14rem; }
+  .grid-6 { grid-template-columns: repeat(3, 1fr); }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+  html { font-size: 18px; }
+  .container { padding: 0 0.5rem; }
+  .hero h1 { font-size: 1.1rem; }
+  .hero .subtitle { font-size: 0.48rem; }
+  .predictor { flex-direction: column; gap: 0.4rem; }
+  .predictor-3d { flex: none; min-height: 10rem; }
+  .tab-bar { overflow-x: auto; flex-wrap: nowrap; }
+  .tab-btn { font-size: 0.45rem; white-space: nowrap; padding: 0.2rem 0.45rem; }
+  .slider-group { margin-bottom: 0.2rem; }
+  input.slider-number { width: 2.5rem; font-size: 0.44rem; }
+  .result-card .result-value { font-size: 0.7rem; }
+  .results-grid { gap: 0.25rem; }
+  .grid-6 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-2-guide { grid-template-columns: 1fr; }
+  .grid-3-guide { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -506,7 +536,7 @@ footer {
   <div id="tab-analytics" class="tab-panel">
   <h2 class="section-title" style="margin-top:0;"><span>Training Analytics &amp; Dataset</span></h2>
 
-  <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:0.4rem; margin-bottom:0.6rem;" id="metrics-row">
+  <div class="grid-6" id="metrics-row">
     <div class="card metric-card">
       <div class="metric-number" id="metric-sims">183,750</div>
       <div class="metric-label">CFD Simulations</div>
@@ -534,7 +564,7 @@ footer {
   </div>
 
   <!-- ROW 1: Loss curve + R² bars (equal height) -->
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; margin-bottom:0.6rem; align-items:stretch;">
+  <div class="grid-2" style="align-items:stretch;">
     <div class="card chart-card" style="display:flex; flex-direction:column;">
       <h3>Training Loss Curve</h3>
       <div class="chart-wrapper" style="flex:1; min-height:10rem;"><canvas id="chart-loss"></canvas></div>
@@ -546,7 +576,7 @@ footer {
   </div>
 
   <!-- ROW 2: 3 separate scatter plots (one per output) -->
-  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.4rem; margin-bottom:0.6rem;">
+  <div class="grid-3">
     <div class="card chart-card" style="padding:0.5rem;">
       <h3 style="font-size:0.4rem;">Predicted vs Actual: Temperature</h3>
       <div class="chart-wrapper" style="height:8rem;"><canvas id="chart-scatter-0"></canvas></div>
